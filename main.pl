@@ -7,10 +7,10 @@ avaliar_sintomas :-
     comma_list(X, Sintomas),
     todas_doencas(Doencas),
     sintomas_sobre_doencas(Doencas, Sintomas, Odds, []),
-    ordenar_lista(Odds, SortedOdds),
-    print_odds(Doencas, SortedOdds),
+    ordenar_lista(Odds, SortedOdds, Doencas, SortedDoencas),
+    print_odds(SortedDoencas, SortedOdds),
     print("O resultado do protótipo é apenas informativo. O paciente deve consultar um médico para obter um diagnóstico correto e preciso."),nl,
-    mais_informacoes(Doencas, Sintomas).
+    mais_informacoes(SortedDoencas, Sintomas).
 
 sintomas_sobre_doencas([], _, X, X).
 sintomas_sobre_doencas([Doenca0|DoencaR], Sintomas, Odds, AccOdds) :-

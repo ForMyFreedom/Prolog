@@ -98,7 +98,7 @@ dengue("Dor Muscular").
 dengue("Dor ao Movimentar os Olhos").
 dengue("Mal-estar").
 dengue("Perda de Apetite").
-dengue("Dor de Cabeca")
+dengue("Dor de Cabeca").
 dengue("Manchas Vermelhas no Corpo").
 
 todas_doencas(A) :- A = [dengue, catapora, caxumba, coronavirus, febre_maculosa, poliomielite, sarampo, tuberculose, influenza, leptospirose].

@@ -99,11 +99,12 @@ append_facts(A) :-
     merge_list(B,[A],C),
     write_facts(C).
 
-insert(A, [B|C], [B|D]) :- A @< B, !, insert(A, C, D).
-insert(A, C, [A|C]).
+insert(A, [B|C], [B|D], X, [Y|F], [Y|G]) :- A @< B, !, insert(A, C, D, X, F, G).
+insert(A, C, [A|C], X, Y, [X|Y]).
 
-ordenar_lista([A|B], S) :- ordenar_lista(B, SR), insert(A, SR, S).
-ordenar_lista([], []).
+ordenar_lista([A|B], S, [C|D], F) :-
+    ordenar_lista(B, SR, D, FR), insert(A, SR, S, C, FR, F).
+ordenar_lista([], [], [], []).
 
 remove_in_list(_, [], B, B).
 remove_in_list(Nome, [A0|AR], B, AccB) :-
